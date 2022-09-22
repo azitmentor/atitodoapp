@@ -1,0 +1,62 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: atitodoapp
+  namespace: default
+  labels:
+    app: atitodoapp
+  annotations:
+    deployment.kubernetes.io/revision: '1'
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: atitodoapp
+  template:
+    metadata:
+      labels:
+        app: atitodoapp
+    spec:
+      containers:
+        - name: atitodoapp
+          image: azitmentor/atitodoapp
+          imagePullPolicy: Always
+
+      restartPolicy: Always
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: atitodoapp-service
+  namespace: default
+  labels:
+    app: atitodoapp
+spec:
+  ports:
+    - protocol: TCP
+      port: 80
+  selector:
+    app: atitodoapp
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: atitodoapp-ingress
+  namespace: default
+  annotations:
+    kubernetes.io/ingress.class: "traefik"
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    traefik.ingress.kubernetes.io/router.tls: "true"
+    traefik.ingress.kubernetes.io/router.tls.certresolver: le
+spec:
+  rules:
+    - host: atitodoapp.laky.ovh
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name:  atitodoapp-service
+                port:
+                  number: 80
