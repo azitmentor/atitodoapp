@@ -22,7 +22,7 @@ export class AddeditComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
       this.id = params['id'];
-      if (this.id != undefined) {
+      if (this.id != undefined && this.id > 0) {
         this.data.getitem(this.id).subscribe((p) => {
           this.item = p;
         });
