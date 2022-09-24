@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '../data.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-addedit',
@@ -14,6 +15,7 @@ export class AddeditComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
+    private location: Location,
     private data: DataService
   ) {}
 
@@ -32,5 +34,9 @@ export class AddeditComponent implements OnInit {
     this.data
       .savedata(this.item)
       .subscribe((p) => this.router.navigateByUrl('/'));
+  }
+
+  cancel() {
+    this.location.back();
   }
 }

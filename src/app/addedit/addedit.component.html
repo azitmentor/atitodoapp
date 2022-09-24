@@ -7,10 +7,17 @@
         <mat-label>Impact</mat-label>
         <input matInput type="text" [(ngModel)]="item.impact" />
     </mat-form-field>
-    <input type="text" [(ngModel)]="item.priority" />
-    <input type="text" [(ngModel)]="item.plannedlength" />
+    <mat-form-field appearance="fill">
+        <mat-label>Priority</mat-label>
+        <input matInput type="text" [(ngModel)]="item.priority" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Planned length</mat-label>
+        <input matInput type="text" [(ngModel)]="item.plannedlength" />
+    </mat-form-field>
     <textarea [(ngModel)]="item.comment"></textarea>
     <textarea [(ngModel)]="item.commentblock"></textarea>
     <button mat-raised-button color="primary" (click)="save()">Save</button>
+    <button mat-raised-button color="secoondary" (click)="cancel()">Cancel</button>
 </section>
 <mat-divider></mat-divider>
