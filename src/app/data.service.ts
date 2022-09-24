@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { LoginModel } from './models/loginmodel';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +13,7 @@ export class DataService {
 
   token: string | null = '';
 
-  getdata() {
+  getdata(): Observable<any> {
     this.token = localStorage.getItem('token');
     const httpOptions = {
       headers: new HttpHeaders({
@@ -28,7 +29,22 @@ export class DataService {
     );
   }
 
-  savedata(item: any) {
+  getitem(id: number): Observable<any> {
+    this.token = localStorage.getItem('token');
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + this.token,
+      }),
+    };
+
+    return this.http.get<any>(
+      this.configUrl + 'api/todo/get/' + id,
+      httpOptions
+    );
+  }
+
+  savedata(item: any): Observable<any> {
     this.token = localStorage.getItem('token');
 
     const httpOptions = {
@@ -44,7 +60,7 @@ export class DataService {
       httpOptions
     );
   }
-  delete(id: number) {
+  delete(id: number): Observable<any> {
     this.token = localStorage.getItem('token');
 
     const httpOptions = {
@@ -60,7 +76,7 @@ export class DataService {
     );
   }
 
-  login(login: LoginModel) {
+  login(login: LoginModel): Observable<any> {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',

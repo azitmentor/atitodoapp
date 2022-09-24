@@ -8,6 +8,7 @@ import { DataService } from '../data.service';
 export class TasklistComponent implements OnInit {
   items: any;
   displayedColumns: string[] = [
+    'addedit',
     'todotext',
     'impact',
     'priority',
@@ -27,11 +28,6 @@ export class TasklistComponent implements OnInit {
       },
       error: (e) => console.error(e),
     });
-  }
-
-  save() {
-    this.item.userid = 1234;
-    this.data.savedata(this.item).subscribe((p) => this.refresh());
   }
 
   delete(id: number) {

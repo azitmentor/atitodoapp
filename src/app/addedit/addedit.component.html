@@ -1,0 +1,16 @@
+<section>
+    <mat-form-field appearance="fill">
+        <mat-label>Task</mat-label>
+        <input matInput type="text" [(ngModel)]="item.todotext" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Impact</mat-label>
+        <input matInput type="text" [(ngModel)]="item.impact" />
+    </mat-form-field>
+    <input type="text" [(ngModel)]="item.priority" />
+    <input type="text" [(ngModel)]="item.plannedlength" />
+    <textarea [(ngModel)]="item.comment"></textarea>
+    <textarea [(ngModel)]="item.commentblock"></textarea>
+    <button mat-raised-button color="primary" (click)="save()">Save</button>
+</section>
+<mat-divider></mat-divider>

@@ -1,21 +1,13 @@
 <section>
-    <mat-form-field appearance="fill">
-        <mat-label>Task</mat-label>
-        <input matInput type="text" [(ngModel)]="item.todotext" />
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-        <mat-label>Impact</mat-label>
-        <input matInput type="text" [(ngModel)]="item.impact" />
-    </mat-form-field>
-    <input type="text" [(ngModel)]="item.priority" />
-    <input type="text" [(ngModel)]="item.plannedlength" />
-    <button mat-raised-button color="primary" (click)="save()">Save</button>
-</section>
-<mat-divider></mat-divider>
-<section>
     <span *ngIf="!items">betöltés</span>
     <div *ngIf="items">
         <table mat-table [dataSource]="items" class="mat-elevation-z8">
+
+            <ng-container matColumnDef="addedit">
+                <th mat-header-cell *matHeaderCellDef>*</th>
+                <td mat-cell *matCellDef="let element"><a mat-raised-button color="primary"
+                        href="/addedit/{{element.id}}">Edit</a></td>
+            </ng-container>
 
             <ng-container matColumnDef="todotext">
                 <th mat-header-cell *matHeaderCellDef>Task</th>
