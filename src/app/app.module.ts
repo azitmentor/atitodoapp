@@ -15,9 +15,15 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { LoginComponent } from './login/login.component';
 import { AddeditComponent } from './addedit/addedit.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
-  declarations: [AppComponent, TasklistComponent, LoginComponent, AddeditComponent],
+  declarations: [
+    AppComponent,
+    TasklistComponent,
+    LoginComponent,
+    AddeditComponent,
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -28,6 +34,7 @@ import { AddeditComponent } from './addedit/addedit.component';
     MatTableModule,
     MatFormFieldModule,
     MatInputModule,
+    MatIconModule,
     FormsModule,
   ],
   providers: [],

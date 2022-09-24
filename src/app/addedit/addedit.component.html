@@ -1,23 +1,26 @@
-<section>
-    <mat-form-field appearance="fill">
-        <mat-label>Task</mat-label>
-        <input matInput type="text" [(ngModel)]="item.todotext" />
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-        <mat-label>Impact</mat-label>
-        <input matInput type="text" [(ngModel)]="item.impact" />
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-        <mat-label>Priority</mat-label>
-        <input matInput type="text" [(ngModel)]="item.priority" />
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-        <mat-label>Planned length</mat-label>
-        <input matInput type="text" [(ngModel)]="item.plannedlength" />
-    </mat-form-field>
-    <textarea [(ngModel)]="item.comment"></textarea>
-    <textarea [(ngModel)]="item.commentblock"></textarea>
-    <button mat-raised-button color="primary" (click)="save()">Save</button>
-    <button mat-raised-button color="secoondary" (click)="cancel()">Cancel</button>
-</section>
-<mat-divider></mat-divider>
+<mat-form-field appearance="fill">
+    <mat-label>Task</mat-label>
+    <input matInput type="text" [(ngModel)]="item.todotext" />
+</mat-form-field>
+<mat-form-field appearance="fill">
+    <mat-label>Impact</mat-label>
+    <input matInput type="text" [(ngModel)]="item.impact" />
+</mat-form-field>
+<mat-form-field appearance="fill">
+    <mat-label>Priority</mat-label>
+    <input matInput type="text" [(ngModel)]="item.priority" />
+</mat-form-field>
+<mat-form-field appearance="fill">
+    <mat-label>Planned length</mat-label>
+    <input matInput type="text" [(ngModel)]="item.plannedlength" />
+</mat-form-field>
+<mat-form-field appearance="fill">
+    <mat-label>Comment</mat-label>
+    <textarea matInput type="text" [(ngModel)]="item.comment"></textarea>
+</mat-form-field>
+<mat-form-field appearance="fill">
+    <mat-label>Comment block</mat-label>
+    <textarea matInput type="text" [(ngModel)]="item.commentblock"></textarea>
+</mat-form-field>
+<button mat-raised-button color="primary" (click)="save()">Save</button>
+<button mat-raised-button color="secoondary" (click)="cancel()">Cancel</button>
