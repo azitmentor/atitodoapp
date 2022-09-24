@@ -13,7 +13,7 @@ export class DataService {
 
   token: string | null = '';
 
-  getdata(): Observable<any> {
+  getdata(text: string): Observable<any> {
     this.token = localStorage.getItem('token');
     const httpOptions = {
       headers: new HttpHeaders({
@@ -24,7 +24,7 @@ export class DataService {
 
     return this.http.post<any>(
       this.configUrl + 'api/todo/list',
-      JSON.stringify({ tags: [] }),
+      JSON.stringify({ tags: [], text }),
       httpOptions
     );
   }

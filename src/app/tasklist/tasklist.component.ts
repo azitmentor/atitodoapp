@@ -7,9 +7,11 @@ import { DataService } from '../data.service';
 })
 export class TasklistComponent implements OnInit {
   items: any;
+  search: string = '';
   displayedColumns: string[] = [
     'addedit',
     'todotext',
+    'tags',
     'impact',
     'priority',
     'plannedlength',
@@ -22,7 +24,7 @@ export class TasklistComponent implements OnInit {
   }
 
   refresh() {
-    this.data.getdata().subscribe({
+    this.data.getdata(this.search).subscribe({
       next: (p) => {
         this.items = p;
       },
