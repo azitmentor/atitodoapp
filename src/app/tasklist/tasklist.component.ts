@@ -14,7 +14,7 @@ export class TasklistComponent implements OnInit {
     'tags',
     'impact',
     'priority',
-    'plannedlength',
+    'length',
     'delete',
   ];
   constructor(private data: DataService) {}
