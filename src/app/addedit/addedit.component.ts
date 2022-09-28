@@ -17,7 +17,7 @@ export class AddeditComponent implements OnInit {
     private router: Router,
     private location: Location,
     private data: DataService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {

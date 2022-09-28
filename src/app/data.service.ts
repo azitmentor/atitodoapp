@@ -9,11 +9,11 @@ import { Observable } from 'rxjs';
 export class DataService {
   configUrl = 'https://atitodoapi.laky.ovh/';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   token: string | null = '';
 
-  getdata(text: string): Observable<any> {
+  getdata(text: string, tags: string[]): Observable<any> {
     this.token = localStorage.getItem('token');
     const httpOptions = {
       headers: new HttpHeaders({
@@ -24,7 +24,7 @@ export class DataService {
 
     return this.http.post<any>(
       this.configUrl + 'api/todo/list',
-      JSON.stringify({ tags: [], text }),
+      JSON.stringify({ tags: tags, text }),
       httpOptions
     );
   }
@@ -88,5 +88,20 @@ export class DataService {
       login,
       httpOptions
     );
+  }
+
+  gettaglist(): Observable<string[]> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + this.token,
+      }),
+    };
+
+    return this.http.get<string[]>(
+      this.configUrl + 'api/todo/tags',
+      httpOptions
+    );
+
   }
 }
