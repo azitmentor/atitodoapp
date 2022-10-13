@@ -1,4 +1,4 @@
-FROM node:14-stretch as build
+FROM node:16 as build
 RUN mkdir -p /app
 WORKDIR /app
 COPY package.json /app

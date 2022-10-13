@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { LoginModel } from './models/loginmodel';
 import { Observable } from 'rxjs';
+import { SearchParam } from './models/searchparam';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +14,7 @@ export class DataService {
 
   token: string | null = '';
 
-  getdata(text: string, tags: string[]): Observable<any> {
+  getdata(search: SearchParam): Observable<any> {
     this.token = localStorage.getItem('token');
     const httpOptions = {
       headers: new HttpHeaders({
@@ -24,7 +25,7 @@ export class DataService {
 
     return this.http.post<any>(
       this.configUrl + 'api/todo/list',
-      JSON.stringify({ tags: tags, text }),
+      JSON.stringify(search),
       httpOptions
     );
   }
@@ -72,6 +73,70 @@ export class DataService {
 
     return this.http.delete<any>(
       this.configUrl + 'api/todo/' + id,
+      httpOptions
+    );
+  }
+
+  done(id: number): Observable<any> {
+    this.token = localStorage.getItem('token');
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + this.token,
+      }),
+    };
+
+    return this.http.post<any>(
+      this.configUrl + 'api/todo/done/' + id, "",
+      httpOptions
+    );
+  }
+
+  star(id: number): Observable<any> {
+    this.token = localStorage.getItem('token');
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + this.token,
+      }),
+    };
+
+    return this.http.post<any>(
+      this.configUrl + 'api/todo/star/' + id, "",
+      httpOptions
+    );
+  }
+
+  today(id: number): Observable<any> {
+    this.token = localStorage.getItem('token');
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + this.token,
+      }),
+    };
+
+    return this.http.post<any>(
+      this.configUrl + 'api/todo/today/' + id, "",
+      httpOptions
+    );
+  }
+
+  archive(id: number): Observable<any> {
+    this.token = localStorage.getItem('token');
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + this.token,
+      }),
+    };
+
+    return this.http.post<any>(
+      this.configUrl + 'api/todo/archive/' + id, "",
       httpOptions
     );
   }

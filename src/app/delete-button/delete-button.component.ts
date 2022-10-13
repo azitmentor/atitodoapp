@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-delete-button',
@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DeleteButtonComponent implements OnInit {
 
+  @Input() item: any;
+  @Output() deleted = new EventEmitter<any>();
+  
   confirm = false;
   constructor() { }
 
@@ -15,5 +18,11 @@ export class DeleteButtonComponent implements OnInit {
 
   deleteClick() {
     this.confirm = true;
+    console.log(this.item);
+  }
+
+  confirmed() {
+    this.confirm = false;
+    this.deleted.emit(this.item);
   }
 }

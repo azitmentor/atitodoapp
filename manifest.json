@@ -1,0 +1,22 @@
+﻿{
+  "short_name": "Időpont vendég",
+  "name": "Időpontmester vendég betöltése",
+  "icons": [
+    {
+      "src": "guestpwaicon.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "guestpwaicon.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "guestpwaicon.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ],
+  "display": "standalone"
+}
