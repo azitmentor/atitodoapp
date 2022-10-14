@@ -5,9 +5,13 @@
             <input type="text" [(ngModel)]="searchparam.text"><button class="btn btn-primary"
                 (click)="refresh()">Search</button>
             <button class="btn btn-secondary" (click)="resetSearch()">Reset</button>
-            <label>Starred</label><input type="checkbox" [(ngModel)]="searchparam.starredonly" (change)="refresh()">
-            <label>Today</label><input type="checkbox" [(ngModel)]="searchparam.todayonly" (change)="refresh()">
-            <label>Hide below</label><input type="number" [(ngModel)]="searchparam.hidebelow" (change)="refresh()">
+            <button class="btn btn-outline-secondary" (click)="showfilter=!showfilter">Filter</button>
+            <div *ngIf="showfilter">
+                <label>Starred</label><input type="checkbox" [(ngModel)]="searchparam.starredonly" (change)="refresh()">
+                <label>Today</label><input type="checkbox" [(ngModel)]="searchparam.todayonly" (change)="refresh()">
+                <label>Hide below</label><input type="number" [(ngModel)]="searchparam.hidebelow" (change)="refresh()">
+                <label>Show done</label><input type="checkbox" [(ngModel)]="searchparam.showdone" (change)="refresh()">
+            </div>
         </div>
     </div>
 
@@ -31,13 +35,13 @@
                     <thead>
                         <tr>
                             <th>*</th>
-                            <th>Starred</th>
-                            <th>Today</th>
+                            <th>S</th>
+                            <th>T</th>
                             <th><span (click)="sorttask()">Task</span></th>
                             <th>Tags</th>
-                            <th><span (click)="sortpriority()">Priority</span></th>
-                            <th><span (click)="sortlength()">Length</span></th>
-                            <th><span (click)="sortvalue()">Power</span></th>
+                            <th><span (click)="sortpriority()">P</span></th>
+                            <th><span (click)="sortlength()">L</span></th>
+                            <th><span (click)="sortvalue()">Pwr</span></th>
                             <th>*</th>
                         </tr>
                     </thead>

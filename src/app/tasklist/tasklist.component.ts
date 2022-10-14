@@ -11,7 +11,8 @@ export class TasklistComponent implements OnInit {
   tags: string[] = [];
   searchparam: SearchParam = {};
   item: any = {};
-
+  showfilter = false;
+  
   constructor(private data: DataService) {
   }
 
