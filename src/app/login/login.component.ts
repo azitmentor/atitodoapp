@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { LoginModel } from '../models/loginmodel';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ import { LoginModel } from '../models/loginmodel';
 export class LoginComponent implements OnInit {
   item: LoginModel = new LoginModel();
   error = false;
-  constructor(private ds: DataService) { }
+  constructor(private ds: DataService, private router: Router) { }
 
   ngOnInit(): void { }
 
@@ -18,7 +19,7 @@ export class LoginComponent implements OnInit {
     this.error = false;
     this.ds.login(this.item).subscribe((p) => {
       localStorage.setItem('token', p.token);
-      console.log(p);
+      this.router.navigate(['/', {}]);
     }, (e) => this.error = true);
   }
 }
