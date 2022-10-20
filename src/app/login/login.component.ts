@@ -9,14 +9,16 @@ import { LoginModel } from '../models/loginmodel';
 })
 export class LoginComponent implements OnInit {
   item: LoginModel = new LoginModel();
-  constructor(private ds: DataService) {}
+  error = false;
+  constructor(private ds: DataService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   login() {
+    this.error = false;
     this.ds.login(this.item).subscribe((p) => {
       localStorage.setItem('token', p.token);
       console.log(p);
-    });
+    }, (e) => this.error = true);
   }
 }
