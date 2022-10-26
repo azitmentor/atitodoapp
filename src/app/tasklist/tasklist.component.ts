@@ -34,7 +34,7 @@ export class TasklistComponent implements OnInit {
       error: (e) => console.error(e),
     });
 
-    this.data.gettaglist().subscribe(t => this.tags = t);
+    this.data.gettaglist(this.searchparam).subscribe(t => this.tags = t);
   }
 
   resetSearch() {

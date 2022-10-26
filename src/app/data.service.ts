@@ -155,7 +155,7 @@ export class DataService {
     );
   }
 
-  gettaglist(): Observable<string[]> {
+  gettaglist(search: SearchParam): Observable<string[]> {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -163,8 +163,8 @@ export class DataService {
       }),
     };
 
-    return this.http.get<string[]>(
-      this.configUrl + 'api/todo/tags',
+    return this.http.post<string[]>(
+      this.configUrl + 'api/todo/tags', search,
       httpOptions
     );
 
