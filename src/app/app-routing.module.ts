@@ -8,6 +8,7 @@ const routes: Routes = [
   { path: '', component: TasklistComponent },
   { path: 'addedit/:id', component: AddeditComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'today', component: TasklistComponent },
 ];
 
 @NgModule({

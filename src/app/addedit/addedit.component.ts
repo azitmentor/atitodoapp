@@ -11,6 +11,7 @@ import { Location } from '@angular/common';
 export class AddeditComponent implements OnInit {
   id: number = 0;
   item: any = {};
+  error1: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -31,9 +32,15 @@ export class AddeditComponent implements OnInit {
   }
 
   save() {
-    this.data
-      .savedata(this.item)
-      .subscribe((p) => this.router.navigateByUrl('/'));
+    if (this.item.todotext!==undefined && this.item.todotext.length !== 0) {
+      this.error1 = false;
+      this.data
+        .savedata(this.item)
+        .subscribe((p) => this.router.navigateByUrl('/'));
+    }
+    else {
+      this.error1 = true;
+    }
   }
 
   cancel() {
