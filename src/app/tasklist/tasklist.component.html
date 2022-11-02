@@ -8,7 +8,7 @@
             <button class="btn btn-outline-secondary" (click)="showfilter=!showfilter">Filter</button>
             <div *ngIf="showfilter">
                 <label>Starred</label><input type="checkbox" [(ngModel)]="searchparam.starredonly" (change)="refresh()">
-                <label>Today</label><input type="checkbox" [(ngModel)]="searchparam.todayonly" (change)="refresh()">
+                <label class="px-2">Today</label><input type="checkbox" [(ngModel)]="searchparam.todayonly" (change)="refresh()">
                 <label>Hide below</label><input type="number" [(ngModel)]="searchparam.hidebelow" (change)="refresh()">
                 <label>Show done</label><input type="checkbox" [(ngModel)]="searchparam.showdone" (change)="refresh()">
             </div>

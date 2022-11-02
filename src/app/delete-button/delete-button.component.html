@@ -1,4 +1,4 @@
 <button *ngIf="!confirm" class="btn btn-primary2 btn-sm shadow" (click)="deleteClick()">Delete</button>
 <ng-container *ngIf="confirm">
-    <span>Biztos ?</span><button (click)="confirmed()">I</button><button (click)="confirm=false">N</button>
+    <span>Biztos ?</span><button class="px-2" (click)="confirmed()">I</button><button class="px-2" (click)="confirm=false">N</button>
 </ng-container>
