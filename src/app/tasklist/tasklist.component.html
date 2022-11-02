@@ -7,10 +7,10 @@
             <button class="btn btn-secondary" (click)="resetSearch()">Reset</button>
             <button class="btn btn-outline-secondary" (click)="showfilter=!showfilter">Filter</button>
             <div *ngIf="showfilter">
-                <label>Starred</label><input type="checkbox" [(ngModel)]="searchparam.starredonly" (change)="refresh()">
+                <label class="px-2">Starred</label><input type="checkbox" [(ngModel)]="searchparam.starredonly" (change)="refresh()">
                 <label class="px-2">Today</label><input type="checkbox" [(ngModel)]="searchparam.todayonly" (change)="refresh()">
-                <label>Hide below</label><input type="number" [(ngModel)]="searchparam.hidebelow" (change)="refresh()">
-                <label>Show done</label><input type="checkbox" [(ngModel)]="searchparam.showdone" (change)="refresh()">
+                <label class="px-2">Show done</label><input type="checkbox" [(ngModel)]="searchparam.showdone" (change)="refresh()">
+                <label class="px-2">Hide below</label><input type="number" [(ngModel)]="searchparam.hidebelow" (change)="refresh()">
             </div>
         </div>
     </div>
