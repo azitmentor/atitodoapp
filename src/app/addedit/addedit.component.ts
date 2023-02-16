@@ -12,7 +12,7 @@ export class AddeditComponent implements OnInit {
   id: number = 0;
   item: any = {};
   error1: boolean = false;
-
+  saveInProgress = false;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -32,13 +32,15 @@ export class AddeditComponent implements OnInit {
   }
 
   save() {
-    if (this.item.todotext!==undefined && this.item.todotext.length !== 0) {
+    if (this.item.todotext !== undefined && this.item.todotext.length !== 0) {
+      this.saveInProgress = true;
       this.error1 = false;
       this.data
         .savedata(this.item)
         .subscribe((p) => this.router.navigateByUrl('/'));
     }
     else {
+      this.saveInProgress = false;
       this.error1 = true;
     }
   }

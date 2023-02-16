@@ -14,7 +14,13 @@
             </div>
         </div>
     </div>
-
+    <div class="row">
+        <div class="col">
+            <div class="alert alert-warning" role="alert" *ngIf="loadError">
+                {{errorMessage}}
+              </div>
+        </div>
+    </div>
     <div class="row">
         <div class="col-12">
             <h4>Tags</h4>

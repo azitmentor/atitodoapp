@@ -28,7 +28,8 @@
                 <textarea class="form-control shadow-sm" type="text" [(ngModel)]="item.commentblock"></textarea>
             </div>
             <div class="mb-3">
-                <button class="btn btn-primary btn-lg w-50 shadow" (click)="save()">Save</button>
+                <button class="btn btn-primary btn-lg w-50 shadow" (click)="save()" *ngIf="!saveInProgress">Save</button>
+                <span *ngIf="saveInProgress">Mentés folyamatban</span>
                 <button class="btn btn-outline-primary btn-lg w-50 shadow" (click)="cancel()">Cancel</button>
             </div>
         </div>

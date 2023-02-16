@@ -19,7 +19,8 @@ export class LoginComponent implements OnInit {
     this.error = false;
     this.ds.login(this.item).subscribe((p) => {
       localStorage.setItem('token', p.token);
-      this.router.navigate(['/', {}]);
+      //this.router.navigate(['/', {}]);
+      this.router.navigateByUrl('/')
     }, (e) => this.error = true);
   }
 }

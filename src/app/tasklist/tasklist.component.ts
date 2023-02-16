@@ -12,7 +12,8 @@ export class TasklistComponent implements OnInit {
   searchparam: SearchParam = {};
   item: any = {};
   showfilter = false;
-  
+  loadError = false;
+  errorMessage = "";
   constructor(private data: DataService) {
   }
 
@@ -26,12 +27,16 @@ export class TasklistComponent implements OnInit {
 
   refresh() {
     localStorage.setItem("searchparam", JSON.stringify(this.searchparam));
-
+    this.loadError = false;
     this.data.getdata(this.searchparam).subscribe({
       next: (p) => {
         this.items = p;
       },
-      error: (e) => console.error(e),
+      error: (e) => {
+        console.error(e);
+        this.loadError = true;
+        this.errorMessage = e.message;
+      },
     });
 
     this.data.gettaglist(this.searchparam).subscribe(t => this.tags = t);
