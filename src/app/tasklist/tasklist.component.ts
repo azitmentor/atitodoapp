@@ -13,6 +13,7 @@ export class TasklistComponent implements OnInit {
   item: any = {};
   showfilter = false;
   loadError = false;
+  isLoading = false;
   errorMessage = "";
   constructor(private data: DataService) {
   }
@@ -28,13 +29,16 @@ export class TasklistComponent implements OnInit {
   refresh() {
     localStorage.setItem("searchparam", JSON.stringify(this.searchparam));
     this.loadError = false;
+    this.isLoading = true;
     this.data.getdata(this.searchparam).subscribe({
       next: (p) => {
+        this.isLoading = false;
         this.items = p;
       },
       error: (e) => {
         console.error(e);
         this.loadError = true;
+        this.isLoading = false;
         this.errorMessage = e.message;
       },
     });
