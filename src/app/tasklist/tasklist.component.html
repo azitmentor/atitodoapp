@@ -13,7 +13,7 @@
                     (change)="refresh()">
                 <label class="px-2">Show done</label><input type="checkbox" [(ngModel)]="searchparam.showdone"
                     (change)="refresh()">
-                <label class="px-2">Hide below</label><input type="number" [(ngModel)]="searchparam.hidebelow"
+                <label class="px-2">Hide below</label><input width="40" type="number" [(ngModel)]="searchparam.hidebelow"
                     (change)="refresh()">
             </div>
         </div>
@@ -34,7 +34,7 @@
     </div>
     <div class="row">
         <div class="col-12">
-            <h4>Tags</h4>
+            <!-- <h4>Tags</h4> -->
             <span *ngFor="let tag of tags">
                 <button (click)="searchparam.tags!.push(tag);refresh()" class="btnsmall">{{tag}}</button>
             </span>
