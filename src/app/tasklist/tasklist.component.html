@@ -36,11 +36,11 @@
         <div class="col-12">
             <!-- <h4>Tags</h4> -->
             <span *ngFor="let tag of tags">
-                <button (click)="searchparam.tags!.push(tag);refresh()" class="btnsmall">{{tag}}</button>
+                <button (click)="addFilterTag(tag)" class="btnsmall">{{tag}}</button>
             </span>
             <b>Selected</b>
             <span *ngFor="let tag of searchparam.tags">
-                <td><button (click)="removeTag(tag)" class="btnsmall">{{tag}}</button></td>
+                <td><button (click)="removeFilterTag(tag)" class="btnsmall">{{tag}}</button></td>
             </span>
         </div>
     </div>

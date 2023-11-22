@@ -94,7 +94,17 @@ export class TasklistComponent implements OnInit {
     this.data.archive(id).subscribe((p) => this.refresh());
   }
 
-  removeTag(tag: string) {
+  addFilterTag(tag: string) {
+    this.searchparam.tags!.push(tag);
+    const index = this.tags.indexOf(tag);
+    if (index > -1) { // only splice array when item is found
+      this.tags!.splice(index, 1); // 2nd parameter means remove one item only
+    }
+    this.refresh()    
+  }
+
+  removeFilterTag(tag: string) {
+    this.tags.push(tag);
     const index = this.searchparam.tags!.indexOf(tag);
     if (index > -1) { // only splice array when item is found
       this.searchparam.tags!.splice(index, 1); // 2nd parameter means remove one item only
