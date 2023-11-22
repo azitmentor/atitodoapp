@@ -11,7 +11,10 @@ import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { AddeditComponent } from './addedit/addedit.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { DeleteButtonComponent } from './delete-button/delete-button.component'
+import { DeleteButtonComponent } from './delete-button/delete-button.component';
+import { TodotableComponent } from './todotable/todotable.component';
+import { TodaylistComponent } from './todaylist/todaylist.component';
+
 
 @NgModule({
   declarations: [
@@ -20,6 +23,8 @@ import { DeleteButtonComponent } from './delete-button/delete-button.component'
     LoginComponent,
     AddeditComponent,
     DeleteButtonComponent,
+    TodotableComponent,
+    TodaylistComponent
   ],
   imports: [
     BrowserModule,
